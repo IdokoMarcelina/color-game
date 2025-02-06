@@ -2,10 +2,16 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    padding: 50px;
+    padding: 20px;
     background-color: gainsboro;
     height: 80vh;
     display: flex;
@@ -14,7 +20,10 @@ body {
     align-items: center;
     text-align: center;
     border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
 }
+
 #colorBox {
     width: 150px;
     height: 150px;
@@ -24,10 +33,13 @@ body {
 }
 
 .options {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    flex-wrap: wrap;
+    justify-items: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
 }
 
 .colorOption {
@@ -59,9 +71,17 @@ body {
 }
 
 @keyframes celebration {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 #score {
@@ -93,4 +113,46 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 9999;
+}
+
+@media (max-width: 768px) {
+    .options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .colorOption {
+        width: 70px;
+        height: 50px;
+    }
+
+    #colorBox {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .options {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .colorOption {
+        width: 60px;
+        height: 45px;
+    }
+
+    #colorBox {
+        width: 100px;
+        height: 100px;
+    }
+
+    .container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    #newGameButton {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
 }
